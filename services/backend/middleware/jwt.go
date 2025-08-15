@@ -13,10 +13,6 @@ import (
 	"backend/handlers"
 )
 
-type login struct {
-	Username string `form:"username,required" json:"username"`
-	Password string `form:"password,required" json:"password"`
-}
 
 var identityKey = "id"
 
