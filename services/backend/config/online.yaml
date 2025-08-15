@@ -1,0 +1,15 @@
+App:
+  Name: basic-backend
+  Host: localhost
+  Port: 13271
+
+Database:
+  dsn: "%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local"
+
+  MaxIdleConns: 10
+  MaxOpenConns: 100
+  ConnMaxLifetime: 3600
+
+Redis:
+  Host: localhost
+  Port: 6379

@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./services/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=basic-db
+    restart: always
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    restart: always
+    volumes:
+      - ./services/redis:/data
+      - ./services/redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./services/redis/logs:/logs

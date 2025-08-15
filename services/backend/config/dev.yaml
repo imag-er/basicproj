@@ -1,0 +1,24 @@
+App:
+  Name: basic-backend
+  Host: localhost
+  Port: 13271
+
+Logger:
+  Level: Info
+
+
+Database:
+  Host: localhost
+  Port: 3306
+  Username: root
+  Password: root
+  Name: basic-db
+
+  MaxIdleConns: 10
+  MaxOpenConns: 100
+  ConnMaxLifetime: 3600
+
+Redis:
+  Host: localhost
+  Port: 6379
+  Password: ""
