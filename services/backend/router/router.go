@@ -30,22 +30,21 @@ func InitRouter() (h *server.Hertz) {
 	{
 		auth.POST("/register", handlers.Register)
 		auth.POST("/login", authMW.LoginHandler)
-		auth.POST("/logout", authMW.LogoutHandler)
 	}
-
+	
 	api := h.Group("/api")
-	api.GET("/exchange-rates", handlers.GetExchangeRates)
-
+	
 	api.GET("/articles/:id", handlers.GetArticlesById)
 	api.GET("/articles", handlers.GetArticles)
 	api.POST("/articles", handlers.CreateArticle)
-
+	
 	api.GET("/likes/:id", handlers.GetArticleLikes)
 	api.POST("/likes/:id", handlers.LikesArticle)
-
-	api.Use(authMW.MiddlewareFunc()) // Apply JWT middleware to the API group
+	
+	api.Use(authMW.MiddlewareFunc())
 	{
-		api.POST("/exchange-rates", handlers.CreateExchangeRate)
+		// 仅作示例, 为了测试的时候不带上jwt就把其他接口authfree了
+		auth.POST("/logout", authMW.LogoutHandler)
 	}
 
 	return

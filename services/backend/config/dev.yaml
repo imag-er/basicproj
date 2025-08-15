@@ -6,7 +6,6 @@ App:
 Logger:
   Level: Info
 
-
 Database:
   Host: localhost
   Port: 3306

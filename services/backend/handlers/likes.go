@@ -14,7 +14,6 @@ func LikesArticle(c context.Context, ctx *app.RequestContext) {
 
 	likesArticle := "article:" + id + ":like"
 
-	// **redis使用
 	if err := dal.RedisClient.Incr(likesArticle).Err(); err != nil {
 		ctx.JSON(consts.StatusInternalServerError, utils.H{
 			"message": "failed to like article: " + err.Error(),

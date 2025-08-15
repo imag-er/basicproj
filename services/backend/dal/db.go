@@ -37,7 +37,6 @@ func initDB() {
 	// Register all models for auto-migration
 	modelsToMigrate := []interface{}{
 		&models.User{},
-		&models.ExchangeRate{},
 		&models.Article{},
 	}
 	if err := db.AutoMigrate(modelsToMigrate...); err != nil {
