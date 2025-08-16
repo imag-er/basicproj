@@ -61,6 +61,7 @@ func Login(c context.Context, ctx *app.RequestContext) (interface{}, error) {
 	if err := dal.DB.Where("username = ?", input.Username).First(&user).Error; err != nil {
 		return nil, jwt.ErrFailedAuthentication
 	}
+	
 	// **校验密码的地方不能直接判断hash值相等
 	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(input.Password)); err != nil {
 		return nil, jwt.ErrFailedAuthentication
